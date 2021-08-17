@@ -3,6 +3,7 @@ import {BrowserRouter, Route, Switch} from "react-router-dom"
 import axios from "axios"
 import PageHeader from '../../components/PageHeader/PageHeader'
 import Listing from "../../components/Listing/Listing"
+import {URL} from "../../utils/api.js"
 import Footer from '../../components/PageFooter/PageFooter'
 import './InventoryPage.scss'
 import Modal from "../../components/Modal/Modal"
@@ -19,11 +20,11 @@ class InventoryPage extends Component {
 
     deleteInventory = (id) => {
         axios
-            .delete(`/api/inventory/${id}`)
+            .delete(`${URL}/inventory/${id}`)
             .then(res => {
                 this.hideModal()
                 axios
-                    .get(`/api/inventory`)
+                    .get(`${URL}/inventory`)
                     .then(res=> {
                         this.setState({
                             inventoryList: res.data
@@ -47,7 +48,7 @@ class InventoryPage extends Component {
     }
 
     componentDidMount(){
-        axios.get(`/api/inventory`)
+        axios.get(`${URL}/inventory`)
         .then(res => this.setState({inventoryList: res.data}))
         .catch(error => console.log(error))
     }
@@ -60,7 +61,7 @@ class InventoryPage extends Component {
 
     componentDidUpdate = () => {
         if (this.state.isUpdated) {
-            axios.get(`/api/inventory`)
+            axios.get(`${URL}/inventory`)
                 .then(res => this.setState(
                     {
                         inventoryList: res.data,

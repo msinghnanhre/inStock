@@ -32,14 +32,14 @@ class InventoryForm extends Component {
             })
             .catch(err => console.log(err))
         axios
-            .get(`/api/inventory`)
+            .get(`${URL}/inventory`)
             .then(res => {
                 res.data.map(item => categories.push(item.category))
             })
             
         if (this.props.match.params.inventoryId) {
             axios
-                .get(`/api/inventory/${this.props.match.params.inventoryId}`)
+                .get(`${URL}/inventory/${this.props.match.params.inventoryId}`)
                 .then(res => {
                     const { category, description, itemName, status,id,  quantity, warehouseName } = res.data[0]
                     this.setState({
