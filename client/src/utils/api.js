@@ -1,6 +1,6 @@
 import axios from "axios";
 
-export const URL = 'http://localhost:8080/api'
+export const URL = 'https://instock-warehouse.herokuapp.com/api'
 
 export const getWarehouses = () => {
     return new Promise((resolve, reject) => {
