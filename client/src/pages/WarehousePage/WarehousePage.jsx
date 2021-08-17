@@ -11,6 +11,7 @@ import Modal from "../../components/Modal/Modal"
 import InventoryDetail from "../../components/InventoryDetail/InventoryDetail"
 import InventoryForm from "../../components/InventoryForm/InventoryForm"
 import { getWarehouses } from '../../utils/api';
+import {URL} from "../../utils/api.js"
 
 
 class WarehouseMainDisplay extends Component {
@@ -24,7 +25,7 @@ class WarehouseMainDisplay extends Component {
 
     deleteWarehouse = (id) => {
         axios
-            .delete(`/api/warehouses/${id}`)
+            .delete(`${URL}/warehouses/${id}`)
             .then(res => {
                 this.hideModal()
                 getWarehouses()
@@ -52,7 +53,7 @@ class WarehouseMainDisplay extends Component {
 
     componentDidMount() {
         axios
-            .get(`/api/warehouses`)
+            .get(`${URL}/warehouses`)
             .then(res => res.data)
             .then(data => {
                 this.setState({
@@ -72,7 +73,7 @@ class WarehouseMainDisplay extends Component {
     componentDidUpdate = () => {
         if(this.state.isUpdated) {
             axios
-                .get(`/api/warehouses`)
+                .get(`${URL}/warehouses`)
                 .then(res => res.data)
                 .then(data => {
                     this.setState({

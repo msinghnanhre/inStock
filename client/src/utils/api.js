@@ -2,6 +2,7 @@ import axios from "axios";
 
 export const URL = 'https://instock-warehouse.herokuapp.com/api'
 
+
 export const getWarehouses = () => {
     return new Promise((resolve, reject) => {
         axios.get(`${URL}/warehouses`)
