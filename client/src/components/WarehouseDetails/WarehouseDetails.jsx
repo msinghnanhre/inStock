@@ -5,6 +5,7 @@ import ListingCard from "../../components/ListingCard/ListingCard"
 import MainHeader from '../MainHeader/MainHeader'
 import "../WarehouseDetails/WarehouseDetails.scss"
 import Modal from "../Modal/Modal"
+import {URL} from "../../utils/api.js"
 
 
 
@@ -19,11 +20,11 @@ class WarehouseDetails extends Component{
     deleteInventory = (id) => {
         const warehouseId = this.props.match.params.warehouseId
         axios
-            .delete(`/api/inventory/${id}`)
+            .delete(`${URL}/inventory/${id}`)
             .then(res => {
                 this.hideModal()
                 axios
-                    .get(`/api/warehouses/${warehouseId}/inventory`)
+                    .get(`${URL}/warehouses/${warehouseId}/inventory`)
                     .then(res => this.setState({inventoryList: res.data}) 
                 )
             })
@@ -46,10 +47,10 @@ class WarehouseDetails extends Component{
     componentDidMount() {
     const { warehouseId } = this.props.match.params
         axios
-            .get(`/api/warehouses/${warehouseId}`)
+            .get(`${URL}warehouses/${warehouseId}`)
             .then(res =>{
                 this.setState({warehouse:res.data})
-                return axios.get(`/api/warehouses/${warehouseId}/inventory`)
+                return axios.get(`${URL}/warehouses/${warehouseId}/inventory`)
             })
             .then(res => this.setState({inventoryList :res.data}))
             .catch(error=> console.log(error))
