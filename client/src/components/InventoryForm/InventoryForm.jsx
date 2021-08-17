@@ -184,7 +184,7 @@ class InventoryForm extends Component {
                                 </option>
                                     {uniqueCategories.map(item => {
                                         return (
-                                        <option key={item.id} value={`${item}`} >{`${item} `} </option>
+                                        <option key={item.id} value={`${item}`} >{`${item} `}</option>
                                         )
                                     })}
                             </select>

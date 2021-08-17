@@ -26,19 +26,6 @@
     }
   },
   {
-    "id": "90ac3319-70d1-4a51-b91d-ba6c2464408c",
-    "name": "Granville",
-    "address": "455 Granville Street",
-    "city": "Vancouver",
-    "country": "CAN",
-    "contact": {
-      "name": "Brad MacDonald",
-      "position": "Warehouse Manager",
-      "phone": "+1 (646) 123-1234",
-      "email": "bmcdonald@instock.com"
-    }
-  },
-  {
     "id": "bfc9bea7-66f1-44e9-879b-4d363a888eb4",
     "name": "San Fran",
     "address": "890 Brannnan Street",
